@@ -1,0 +1,908 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bas Ek Mauka... ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0d0915;
+    --bg2: #171022;
+    --pink: #ff8fc8;
+    --light-pink: #ffd6ea;
+    --purple: #a88bff;
+    --white: #fff8fc;
+    --muted: #b9aebb;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,143,200,.10), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(168,139,255,.09), transparent 30%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+    color: var(--white);
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: .45;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: .15; transform: scale(.7); }
+    50% { opacity: .9; transform: scale(1.4); }
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    color: rgba(255,143,200,.4);
+    font-size: 15px;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: .7; }
+    90% { opacity: .4; }
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* ---------- SECTIONS ---------- */
+
+section {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+}
+
+.content {
+    width: min(850px, 94%);
+    text-align: center;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+    flex-direction: column;
+}
+
+.moon {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin: 0 auto 35px;
+    background:
+        radial-gradient(circle at 30% 30%, #fff, #ffdff0 55%, #c9a7d9);
+    box-shadow:
+        0 0 25px rgba(255,220,240,.5),
+        0 0 90px rgba(255,143,200,.18);
+    position: relative;
+    transition: transform .8s ease-out;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(170,130,170,.18);
+    top: 28px;
+    left: 33px;
+    box-shadow:
+        35px 27px 0 8px rgba(170,130,170,.10),
+        8px 55px 0 3px rgba(170,130,170,.13);
+}
+
+.small-label {
+    color: var(--pink);
+    letter-spacing: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(55px, 10vw, 95px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.hero-subtitle {
+    max-width: 600px;
+    margin: auto;
+    color: var(--muted);
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.scroll-hint {
+    margin-top: 55px;
+    color: #8d8192;
+    font-size: 12px;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .4; }
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn {
+    border: 1px solid rgba(255,143,200,.4);
+    background: rgba(255,143,200,.08);
+    color: var(--light-pink);
+    padding: 14px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: .3s;
+    backdrop-filter: blur(10px);
+}
+
+.btn:hover {
+    background: rgba(255,143,200,.18);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255,143,200,.12);
+}
+
+/* ---------- MESSAGE ---------- */
+
+.message-card {
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 25px;
+    padding: clamp(30px, 6vw, 65px);
+    text-align: left;
+    box-shadow: 0 25px 80px rgba(0,0,0,.25);
+    backdrop-filter: blur(12px);
+}
+
+.message-card .tiny {
+    color: var(--pink);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.message-card h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 500;
+    font-size: clamp(27px, 5vw, 42px);
+    margin-bottom: 30px;
+}
+
+.message-card p {
+    color: #c7bdc9;
+    font-size: 16px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+.quote {
+    border-left: 2px solid var(--pink);
+    padding: 18px 20px;
+    margin: 30px 0;
+    color: var(--light-pink) !important;
+    font-family: "Playfair Display", serif;
+    font-size: 20px !important;
+    font-style: italic;
+}
+
+/* ---------- REASONS ---------- */
+
+.reasons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.reason {
+    padding: 25px 18px;
+    border: 1px solid rgba(255,255,255,.07);
+    background: rgba(255,255,255,.025);
+    border-radius: 18px;
+    transition: .3s;
+}
+
+.reason:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,143,200,.25);
+}
+
+.reason-icon {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.reason h3 {
+    font-family: "Playfair Display", serif;
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+.reason p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #988e9b;
+}
+
+/* ---------- THE LINE ---------- */
+
+.special-line {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.special-line p {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(38px, 7vw, 65px);
+    color: var(--light-pink);
+    line-height: 1.25;
+}
+
+/* ---------- CHOICE ---------- */
+
+.choice-box {
+    text-align: center;
+}
+
+.choice-box h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(28px, 5vw, 45px);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.choice-box > p {
+    color: #aaa0ad;
+    max-width: 570px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.yes-btn {
+    background: linear-gradient(135deg, rgba(255,143,200,.25), rgba(168,139,255,.2));
+}
+
+.no-btn {
+    position: relative;
+}
+
+/* ---------- FINAL ---------- */
+
+.final {
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.final-heart {
+    font-size: 60px;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 25px;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+}
+
+.final h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(55px, 10vw, 90px);
+    font-weight: 400;
+}
+
+.signature {
+    margin-top: 25px;
+    color: #938895;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+}
+
+/* ---------- POPUP ---------- */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(5,3,9,.78);
+    backdrop-filter: blur(12px);
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.popup.active {
+    display: flex;
+}
+
+.popup-box {
+    width: min(550px, 95%);
+    background: #17101f;
+    border: 1px solid rgba(255,143,200,.25);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 30px 100px rgba(0,0,0,.5);
+    animation: popupIn .45s ease;
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.popup-box h3 {
+    font-family: "Great Vibes", cursive;
+    color: var(--light-pink);
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.popup-box p {
+    color: #c6bbc8;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 700px) {
+
+    section {
+        padding: 30px 15px;
+    }
+
+    .moon {
+        width: 95px;
+        height: 95px;
+        margin-bottom: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .message-card {
+        padding: 28px 22px;
+    }
+
+    .message-card p {
+        font-size: 15px;
+        line-height: 1.85;
+    }
+
+    .quote {
+        font-size: 18px !important;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .reason {
+        padding: 20px;
+    }
+
+    .popup-box {
+        padding: 30px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="content">
+
+        <div class="moon" id="moon"></div>
+
+        <div class="small-label">A little something I wanted to say</div>
+
+        <h1>Bas Ek Mauka...</h1>
+
+        <p class="hero-subtitle">
+            Not to erase what happened.<br>
+            Not to force anything.<br>
+            Just to tell you what is still in my heart.
+        </p>
+
+        <div class="scroll-hint">
+            ↓ &nbsp; take your time &nbsp; ↓
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MAIN LETTER -->
+<section>
+    <div class="content">
+
+        <div class="message-card">
+
+            <div class="tiny">For you, honestly</div>
+
+            <h2>I know I made mistakes.</h2>
+
+            <p>
+                I know that saying sorry doesn't magically undo everything.
+                I know there were things I did, things I didn't do,
+                and moments where I should have understood you better.
+            </p>
+
+            <p>
+                And honestly, I don't want to make excuses for any of it.
+                I just want to accept that I hurt someone who meant
+                — and still means — so much to me.
+            </p>
+
+            <p>
+                Maybe I understood the value of some things a little too late.
+                Maybe I should have been more careful with your heart.
+            </p>
+
+            <div class="quote">
+                "Main abhi bhi tumse pyaar karta hoon...
+                toh kisi doosri ke baare mein kyun sochu?"
+            </div>
+
+            <p>
+                Maine woh baat sirf tumhe convince karne ke liye nahi kahi thi.
+                Woh genuinely mere dil ki baat thi.
+            </p>
+
+            <p>
+                I still love you.
+                And pretending that I don't would only be lying to both of us.But nothing can hurt me more than you not talking to me, please at least talk to me please.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- WHAT I UNDERSTAND -->
+<section>
+    <div class="content">
+
+        <div class="small-label">What I finally understand</div>
+
+        <h2 style="
+            font-family:'Playfair Display';
+            font-weight:400;
+            font-size:clamp(30px,5vw,48px);
+            margin-bottom:20px;">
+            Love isn't just saying "I love you."
+        </h2>
+
+        <p style="
+            color:#aaa0ad;
+            max-width:650px;
+            margin:auto;
+            line-height:1.9;">
+            It's also listening. Understanding. Remembering.
+            Being consistent. Respecting someone's feelings.
+            And most importantly, showing it through actions.
+        </p>
+
+        <div class="reasons">
+
+            <div class="reason">
+                <div class="reason-icon">♡</div>
+                <h3>Listen better</h3>
+                <p>
+                    Not just hearing your words,
+                    but actually understanding what you feel.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="reason-icon">🫂</div>
+                <h3>Never lying</h3>
+                <p>
+                    I've learned my lesson,
+                    I've have really changed during that 4-5 months completely after losing you,
+                    I don't you would even believe this..but it's truth. 
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="reason-icon">🌙</div>
+                <h3>Be consistent</h3>
+                <p>
+                    Not only when I'm scared of losing you,
+                    but every single day.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="reason-icon">✦</div>
+                <h3>Show it</h3>
+                <p>
+                    Less promises.
+                    More actions that make you feel valued.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SPECIAL LINE -->
+<section>
+    <div class="content special-line">
+
+        <p>
+            I don't want another chance<br>
+            just to say I got one...
+        </p>
+
+        <p style="margin-top:25px;">
+            I want a chance<br>
+            to become someone who deserves it.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- CHOICE -->
+<section>
+    <div class="content choice-box">
+
+        <div class="small-label">One last thing</div>
+
+        <h2>
+            Can I have one chance?
+        </h2>
+
+        <p>
+            Not a promise that everything will instantly become perfect.
+            Not an expectation that you forget everything.
+            Just one chance to show you that I can do better.
+        </p>
+
+        <div class="choice-buttons">
+
+            <button class="btn yes-btn" id="chanceBtn">
+                Maybe... ♡
+            </button>
+
+            <button class="btn no-btn" id="respectBtn">
+                I need time
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL -->
+<section class="final">
+    <div class="content">
+
+        <div class="final-heart">♡</div>
+
+        <h2>Whatever you choose...</h2>
+
+        <p style="
+            max-width:600px;
+            margin:25px auto;
+            color:#aaa0ad;
+            line-height:1.9;">
+            I'll respect it.
+            I just didn't want to leave these words unsaid.
+        </p>
+
+        <div class="signature">
+            With all the love I still have for you, take care Superwoman,(i hope maybe choose kiya ho 🛐)<br>
+            — S
+        </div>
+
+    </div>
+</section>
+
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+
+    <div class="popup-box">
+
+        <h3>Thank you... ♡</h3>
+
+        <p>
+            You don't have to answer everything right now.
+            You don't have to forget the past.
+            You don't even have to make a decision today.
+        </p>
+
+        <p>
+            If someday you feel like giving me that chance,
+            I'll be here — ready to prove it through my actions,
+            not just words.
+        </p>
+
+        <button class="btn" id="closePopup">
+            Close gently ♡
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ---------- CREATE STARS ---------- */
+
+const starsContainer = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    star.style.animationDuration =
+        2 + Math.random() * 4 + "s";
+
+    starsContainer.appendChild(star);
+}
+
+
+/* ---------- FLOATING HEARTS ---------- */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.innerHTML = Math.random() > .5 ? "♡" : "♥";
+
+    heart.style.left = Math.random() * 100 + "%";
+
+    const size = 10 + Math.random() * 13;
+    heart.style.fontSize = size + "px";
+
+    const duration = 8 + Math.random() * 8;
+    heart.style.animationDuration = duration + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+setInterval(createHeart, 1800);
+
+
+/* ---------- INTERACTIVE MOON ---------- */
+
+const moon = document.getElementById("moon");
+
+document.addEventListener("mousemove", (e) => {
+
+    const x = (e.clientX / window.innerWidth - .5) * 18;
+    const y = (e.clientY / window.innerHeight - .5) * 18;
+
+    moon.style.transform =
+        `translate(${x}px, ${y}px)`;
+});
+
+
+/* ---------- CHANCE BUTTON ---------- */
+
+const chanceBtn = document.getElementById("chanceBtn");
+const popup = document.getElementById("popup");
+const closePopup = document.getElementById("closePopup");
+
+chanceBtn.addEventListener("click", () => {
+
+    popup.classList.add("active");
+
+    // little heart burst
+    for (let i = 0; i < 12; i++) {
+
+        setTimeout(() => {
+
+            const heart = document.createElement("div");
+
+            heart.innerHTML = "♡";
+
+            heart.style.position = "fixed";
+            heart.style.left = "50%";
+            heart.style.top = "50%";
+            heart.style.color = "#ff8fc8";
+            heart.style.fontSize = "20px";
+            heart.style.pointerEvents = "none";
+            heart.style.zIndex = "30";
+
+            const angle =
+                Math.random() * Math.PI * 2;
+
+            const distance =
+                80 + Math.random() * 150;
+
+            document.body.appendChild(heart);
+
+            heart.animate([
+                {
+                    transform: "translate(-50%, -50%) scale(.5)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                    `translate(
+                        calc(-50% + ${Math.cos(angle) * distance}px),
+                        calc(-50% + ${Math.sin(angle) * distance}px)
+                    ) scale(1.3)`,
+                    opacity: 0
+                }
+            ], {
+                duration: 900,
+                easing: "ease-out"
+            });
+
+            setTimeout(() => heart.remove(), 950);
+
+        }, i * 40);
+    }
+});
+
+
+/* ---------- RESPECT BUTTON ---------- */
+
+const respectBtn =
+    document.getElementById("respectBtn");
+
+respectBtn.addEventListener("click", () => {
+
+    popup.classList.add("active");
+
+    document.querySelector(".popup-box h3")
+        .textContent = "Take your time ♡";
+
+    document.querySelectorAll(".popup-box p")[0]
+        .textContent =
+        "You don't have to decide anything just because I asked.";
+
+    document.querySelectorAll(".popup-box p")[1]
+        .textContent =
+        "Your feelings matter. I'll respect whatever you need, even if what you need is time and space.";
+
+});
+
+
+/* ---------- CLOSE POPUP ---------- */
+
+closePopup.addEventListener("click", () => {
+
+    popup.classList.remove("active");
+
+});
+
+
+/* ---------- ESC KEY ---------- */
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.key === "Escape") {
+        popup.classList.remove("active");
+    }
+
+});
+
+
+/* ---------- TOUCH MOON ---------- */
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchmove", (e) => {
+
+    if (!e.touches.length) return;
+
+    const touch = e.touches[0];
+
+    const x =
+        (touch.clientX / window.innerWidth - .5) * 12;
+
+    const y =
+        (touch.clientY / window.innerHeight - .5) * 12;
+
+    moon.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+}, { passive: true });
+
+</script>
+
+</body>
+</html>
+```
